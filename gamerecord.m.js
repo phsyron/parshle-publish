@@ -45,7 +45,7 @@ customElements.define("game-record", class extends HTMLElement {
             if(this.today in dsWon)
                 return;
             dsWon[this.today] = true;
-            this.record.set('dailiesWon');
+            this.record.set('dailiesWon',dsWon);
         }
         this.record.set('gamesWon',this.record.get('gamesWon') + 1);
     }

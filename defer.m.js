@@ -11,7 +11,6 @@ window.gameWorker.addEventListener('message',m=>{
             window.gameWorker.postMessage({type:'newGame',value:null});
         } else {
             console.log('already played today');
-            for(let g of cur.get());
         }
     }
 });
