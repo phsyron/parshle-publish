@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parshle</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="module" src="defer.m.js" defer></script>
+        <script type="module" src="guessboxer.m.js"></script>
+        <script type="module" src="guesstracker.m.js"></script>
+        <script type="module" src="gamekeyboard.m.js"></script>
+        <script type="module" src="gamerecord.m.js"></script>
+        <script type="module" src="gameoptions.m.js"></script>
+        <script> window.gameWorker = new Worker('game.js'); </script>
+        <template id="game-keyboard">
+            <form autocomplete="off">
+                <guess-boxer watch="input[name=guessing]"></guess-boxer>
+                <input type="text" name="guessing" required autofocus />
+                <fieldset disabled></fieldset>
+            </form>
+        </template>
+    </head>
+    <body>
+        <header>
+            <button type="button" for="options">Opt</button>
+            <h1>Parshle</h1>
+            <button type="button" for="record">Rec</button>
+            <button type="button" for="help">?</button>
+        </header>
+        <dialog id="options">
+            <section>
+                <h2>Options</h2>
+                <p>What options could there possibly be?</p>
+                <game-options>
+                    <button id="newGame">New Game</button>
+                    <button id="cheat">Show Answer</button>
+                </game-options>
+            </section>
+        </dialog>
+        <dialog id="record">
+            <section>
+                <h2>Record</h2>
+                <div id="congratulations" hidden>
+                    <p>Congratulations!</p>
+                    <p>You win!</p>
+                </div>
+                <game-record>
+                    <p>Games won: <output id="gamesWon"></output></p>
+                    <p>Daily games won: <output id="dailiesWon"></output></p>
+                </game-record>
+            </section>
+        </dialog>
+        <dialog id="help">
+            <section>
+                <h2>Help</h2>
+                <p>Welcome to Parshle!</p>
+                <p>Parshle is a wordle-like, guess-the-word game, but with no fixed word size.</p>
+                <p><guess-boxer pattern="?==?~">hello</guess-boxer></p>
+                <p><guess-boxer pattern="=?=???~??">everyone</guess-boxer></p>
+                <p>Letters in <guess-boxer pattern="=====">green</guess-boxer> are in the word, in the right order.</p>
+                <p>Letters in <guess-boxer pattern="~~~~~~">orange</guess-boxer> are in the word, but in a different order.</p>
+                <p>Letters in <guess-boxer pattern="">grey</guess-boxer> aren't in the word at all.</p>
+                <p>Your guess turns <guess-boxer pattern="!!!!">blue</guess-boxer> when you win!</p>
+                <p>If your guess is <guess-boxer pattern="===">all</guess-boxer> green, that means there are more letters in the word.</p>
+            </section>
+        </dialog>
+        <main>
+            <guess-tracker></guess-tracker>
+            <game-keyboard name="keyboard" layout=":qwertyuiop;::asdfghjkl;&#x232B;zxcvbnm&#x23CE;"></game-keyboard>
+            <footer>Created by Ben Martin</footer>
+        </main>
+    </body>
+</html>
