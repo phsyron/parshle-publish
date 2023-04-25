@@ -142,8 +142,7 @@ game-keyboard {
     background-color: var(--color-bg-2);
     display:flex;
     flex-flow: column nowrap;
-    margin:7px;
-    padding:5px;
+    margin:3px;
     border-radius:10px;
 }
 
@@ -154,8 +153,9 @@ game-keyboard guess-boxer {
     align-items: center;
     background-color: var(--color-bg-1);
     border-radius: 10px;
-    width:100%;
+    width:calc(100% - 10px);
     box-sizing: border-box;
+    margin: 5px auto;
 }
 
 game-keyboard > form {
@@ -172,19 +172,19 @@ game-keyboard > form > fieldset {
     flex-flow: column nowrap;
     align-items: center;
     border:none;
-    padding:5px;
+    padding:5px 0;
+    margin:0;
 }
 
 game-keyboard > form > fieldset > div {
     width:100%;
     display: grid;
-    grid-template-columns: repeat(31,1fr);
+    grid-template-columns: repeat(calc(var(--num-cols,10) * 3 + 2),1fr);
 }
 
 game-keyboard button, game-keyboard button:disabled {
-    min-width:2em;
-    min-height:2em;
-    margin: 5px;
+    min-width:1.75em;
+    margin: 3px;
     aspect-ratio: 1;
     font-size: 1.35em;
     border-radius: 50%;

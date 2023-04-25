@@ -124,6 +124,7 @@ customElements.define("game-keyboard", class extends HTMLElement {
     }
 
     setLayout(layout){
+        this.keys.innerHTML="";
         let r = document.createElement('div')
         this.keys.appendChild(r);
         for(let c of layout){
@@ -150,6 +151,13 @@ customElements.define("game-keyboard", class extends HTMLElement {
             }
         }
         this.buttons = Array.from(this.keys.querySelectorAll("button"));
+        let ncols = Array.from(this.keys.childNodes)
+                    .map(d => Array.from(d.childNodes))
+                    .map(a => a.filter( x => x.tagName=="BUTTON") )
+                    .map(a=>a.length)
+                    .reduce((a,b)=>Math.max(a,b));
+        this.keys.style.setProperty('--num-cols',ncols);
+        this.keys.style.setProperty('--num-rows',this.keys.childNodes.length);
     }
 
     static get observedAttributes(){
