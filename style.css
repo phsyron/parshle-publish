@@ -7,12 +7,13 @@ html {
     --color-bg-3: hsl(var(--color-main-hue) 30% 50%);
     --color-fg: hsl(var(--color-main-hue) 75% 35%);
     --color-text: var(--color-key);
-    --color-eq: hsl(150 100% 50%);
+    --color-eq: hsl(120 67% 45%);
     --color-sub:  hsl(var(--color-main-hue), 10%, 50%);
-    --color-mov: hsl(25, 100%, 66%);
-    --color-win: hsl(237, 100%, 66%);
-    --color-wrong: hsl(0, 69%, 40%);
-    --color-key: hsl(46, 15%, 89%);
+    --color-mov: hsl(45, 85%, 45%);
+    --color-win: hsl(233, 67%, 53%);
+    --color-wrong: hsl(0, 67%, 40%);
+    --color-key: hsl(30, 100%, 93%);
+    --color-key-border: hsl(0, 0%, 47%);
     font-family: sans-serif;
     letter-spacing:.05em;
 }
@@ -171,10 +172,10 @@ game-keyboard > form > fieldset {
     flex-flow: column nowrap;
     align-items: center;
     border:none;
+    padding:5px;
 }
 
 game-keyboard > form > fieldset > div {
-    max-width: 40em;
     width:100%;
     display: grid;
     grid-template-columns: repeat(31,1fr);
@@ -183,7 +184,7 @@ game-keyboard > form > fieldset > div {
 game-keyboard button, game-keyboard button:disabled {
     min-width:2em;
     min-height:2em;
-    margin:2px;
+    margin: 5px;
     aspect-ratio: 1;
     font-size: 1.35em;
     border-radius: 50%;
@@ -191,6 +192,7 @@ game-keyboard button, game-keyboard button:disabled {
     grid-column: auto / span 3;
     background-color: var(--color-key);
     color: black;
+    border:3px solid var(--color-key-border);
 }
 
 game-keyboard > form > fieldset > div > button.sub {

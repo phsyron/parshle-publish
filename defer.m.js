@@ -10,7 +10,7 @@ window.gameWorker.addEventListener('message',m=>{
         if(!(value in rec.get('dailiesWon'))){
             window.gameWorker.postMessage({type:'newGame',value:null});
         } else {
-            console.log('already played today');
+            window.gameWorker.postMessage({type:'newGame',value:Math.random()});
         }
     }
 });
