@@ -172,19 +172,19 @@ game-keyboard > form > fieldset {
     flex-flow: column nowrap;
     align-items: center;
     border:none;
-    padding:5px 0;
+    padding:5px 2px;
     margin:0;
 }
 
 game-keyboard > form > fieldset > div {
     width:100%;
     display: grid;
-    grid-template-columns: repeat(calc(var(--num-cols,10) * 3 + 2),1fr);
+    grid-template-columns: repeat(calc(var(--num-cols,10) * 3 + 1),1fr);
 }
 
 game-keyboard button, game-keyboard button:disabled {
-    min-width:1.75em;
-    margin: 3px;
+    min-width:1.65em;
+    margin: 1px;
     aspect-ratio: 1;
     font-size: 1.35em;
     border-radius: 50%;
@@ -193,6 +193,10 @@ game-keyboard button, game-keyboard button:disabled {
     background-color: var(--color-key);
     color: black;
     border:3px solid var(--color-key-border);
+}
+
+button[value=\232B]{
+    padding-left:0px; /*This character looks terrible and off-center*/
 }
 
 game-keyboard > form > fieldset > div > button.sub {
