@@ -4,8 +4,13 @@ var MILISEC_IN_DAY = 24 * 60 * 60 * 1000;
 var FIRST_GAME_DAY = 19437;
 
 var today = (()=>{
-    let d = new Date();
-    return new Date(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`) / MILISEC_IN_DAY - FIRST_GAME_DAY;
+    let date = new Date();
+    let y = date.getFullYear();
+    let m = date.getMonth();
+    m = (m < 10) ? `0${m}` : `${m}`
+    let d = date.getDate();
+    d = (d < 10) ? `0${d}` : `${d}`
+    return new Date(`${y}-${m}-${d}`) / MILISEC_IN_DAY - FIRST_GAME_DAY;
 })();
 
 class Game {

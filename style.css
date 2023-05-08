@@ -185,6 +185,7 @@ game-keyboard > form > fieldset > div {
 game-keyboard button, game-keyboard button:disabled {
     min-width:1.65em;
     margin: 1px;
+    padding:0;
     aspect-ratio: 1;
     font-size: 1.35em;
     border-radius: 50%;
